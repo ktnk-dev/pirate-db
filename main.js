@@ -56,7 +56,7 @@ const render = {
 
 async function init() {
     render.loader()
-    await sleep(1.5) // remove in release
+    //await sleep(1.5) // remove in release // now removed lmao
     await fetch('./database.json').then(r => {return r.json()}).then(r => {db = r})
     document.querySelector('#loader > .loader > .text').innerHTML = 'Rendering'
     render.search()
