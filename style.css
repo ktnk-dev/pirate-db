@@ -1,0 +1,250 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Fira+Code:wght@300&display=swap');
+body {
+    margin: 0;
+    padding: 0;
+
+    background-color: #000;
+    background: url('./bg.jpg') #000;
+    /* background-size: cover; */
+    background-size: contain;
+    /* background-position-x: 50%;
+    background-position-y: 50%; */
+    backdrop-filter: blur(100px) brightness(30%);
+    -webkit-backdrop-filter: blur(100px) brightness(30%);
+    
+    overflow-x: hidden;
+} 
+app {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    /* height: 100vh; */
+    min-height: 100vh;
+    backdrop-filter: blur(50px) brightness(30%);
+    -webkit-backdrop-filter: blur(50px) brightness(30%);
+}
+#loader {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.loader {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    transition: opacity .3s;
+    animation: appear .5s;
+}
+.loader > .spinner {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+
+    border: solid 4px rgba(255,255,255,1);
+    border-top: solid 4px rgba(255,255,255,0);
+    animation: loader 1.4s infinite linear;
+} .loader > .text {
+    margin-top: 10px;
+    color: rgba(255,255,255,.8);
+    user-select: none;
+}
+
+#search {
+    width: 100vw;
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+#search > .title {
+    margin-top: min(30vh, 30vw);
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    margin-bottom: 50px;
+}
+
+#search > .title > h1 {
+    margin: 0;
+    padding: 0;
+
+    font-family: 'Dancing Script';
+    font-weight: 700;
+    font-size: 85px;
+    font-style: bold;
+
+    color: #fff;
+    user-select: none;
+
+    text-align: center;
+
+}
+#search > .title > .links {
+    display: flex;
+
+}
+
+
+#search > .title > .links > a {
+    font-family: 'Fira Code';
+    text-decoration: none;
+    color: rgba(255,255,255,.8);
+    margin: 0;
+    padding: 0;
+    margin-left: 20px;
+} #search > .title > .links > a:hover {
+    text-decoration: underline;
+    color: rgba(255,255,255,.9);
+}
+
+#search > input {
+    background: rgba(255,255,255,.2);
+    padding: 10px 15px;
+
+    border: none;
+    border-radius: 100px;
+
+    color: #fff;
+    font-size: 20px;
+    font-family: 'Fira Code';
+
+    width: 40%;
+} #search > input::placeholder {
+    opacity: 0.5;
+    color: white;
+}
+
+#search > .results {
+    width: calc(40% + 30px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 30px;
+
+}
+#search > .results > .result {
+    background: rgba(255,255,255,.2);
+    padding: 10px 20px;
+    width: 100%;
+    font-family: 'Fira Code';
+    text-decoration: none;
+    color: #fff;
+    cursor: pointer;
+    transition: opacity .7s;
+
+    border-top: rgba(255,255,255,.03) solid 1px;
+    border-bottom: rgba(255,255,255,.03) solid 1px;
+
+    user-select: none;
+
+
+
+} #search > .results:hover > .result:not(:hover) {
+    opacity: .4;
+} #search > .results:hover > .result:hover {
+    transition: opacity .1s;
+}
+
+#search > .results > .result:first-child {
+    border-top: 0;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    margin-top: 50px;
+} #search > .results > .result:last-child {
+    border-bottom: 0;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    margin-bottom: 50px;
+
+} #search > .results > .result-warn {
+    text-align: center;
+}
+ 
+
+
+@keyframes appear {
+    0% {opacity: 0;}
+    30% {opacity: 0;}
+    100% {opacity: 1;}
+}
+@keyframes disappear {
+    0% {opacity: 1;}
+    30% {opacity: 1;}
+    100% {opacity: 0;}
+}
+
+
+@keyframes loader {
+    0% {transform: rotate(0deg);}
+    100% {transform: rotate(360deg);}
+}
+
+
+
+.info {
+    margin: 40px 20px;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 30px;
+    margin-right: 10px;
+    display: flex;
+    flex-direction: column;
+} .mini {
+    font-family: 'Fira Code';
+    font-size: 20px;
+    user-select: none;
+} .info > .links {
+    margin-top: 10px;
+    margin-bottom: 40px;
+    display: flex;
+    flex-wrap: wrap;
+} .info > .links > button {
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+button {
+    border: 0;
+    padding: 10px 20px;
+    background: rgba(255,255,255,.2);
+    color: #fff;
+    font-family: 'Fira Code';
+    border-radius: 100px;
+    cursor: pointer;
+
+    flex-grow: 1;
+
+    transition: background .2s;
+} button:hover {
+    background: rgba(255,255,255,.3);
+} button:active {
+    background: rgba(255,255,255,.4);
+    transition: background 0s;
+
+}
+
+
+
+
+@media (max-width: 600px){
+    #search > .title > h1 {
+        font-size: 40px;
+    } #search > .title > .links > a {
+        font-size: 14px;
+    } 
+}
+#search > input {
+    width: min(calc(85% - 40px), 600px);
+} #search > .results {
+    width: min(calc(85% - 40px), 600px);
+} .info {
+width: min(calc(85%), 640px);
+}
